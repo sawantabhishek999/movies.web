@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-body" *ngIf="movie" >
+    <div class="panel-image" class="col-md-4">
+      <img src="{{movie.poster_path_s ?  '../../../../../../assets/images/avengers.jpg': movie.poster_path_s}}" alt="{{movie.original_title_s}}">
+    </div>
+    <div class="col-md-8">
+      <div class="">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <h4>{{movie.original_title_s}}</h4>
+          <h6>{{movie.release_date_dt | date: 'longDate'}}</h6>
+        </div>
+      </div>
+      <div class="row">
+        <p>{{movie.overview_s}}</p>
+        <a class="btn btn-info" data-toggle="collapse" href="{{'#infoBox'+index}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+          More info
+        </a>
+      </div>
+      <div class="row">
+        <div class="collapse"  [id]="'infoBox'+index">
+          <b>Genres:</b>
+          <div class="card card-body">
+            
+            <span class="genreList" *ngFor="let genre of movie.genre_ids_is"  class="col-md-3">
+              <span class="badge badge-pill badge-primary">{{genre}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

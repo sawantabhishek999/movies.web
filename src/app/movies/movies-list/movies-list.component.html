@@ -1,0 +1,10 @@
+<div class="row equal" *ngIf="moviesList.length > 0">
+  <div *ngFor="let movie of moviesList; let i = index" class="col-lg-6 col-md-6 col-sm-6">
+    <app-movie-card [movie]="movie" [index]=i></app-movie-card> 
+  </div>
+</div>
+<div class="row equal" *ngIf="moviesList.length === 0">
+  <div class="alert alert-danger" role="alert">
+    No movies found!!!
+  </div>
+</div>
