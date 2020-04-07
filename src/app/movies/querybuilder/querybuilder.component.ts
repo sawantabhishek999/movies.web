@@ -12,7 +12,6 @@ export class QuerybuilderComponent implements OnInit {
   constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
-    console.log($);
     $(document).ready(function () {
       const rules_basic = {
         condition: 'AND',
@@ -72,7 +71,7 @@ export class QuerybuilderComponent implements OnInit {
           placeholder: 'Enter original language',
         },
         {
-          id: '"title_s',
+          id: 'title_s',
           label: 'Title',
           type: 'string',
           placeholder: 'Enter title',
@@ -110,22 +109,23 @@ export class QuerybuilderComponent implements OnInit {
           label: 'Vote Average',
           type: 'double',
           operators: ['equal', 'less', 'greater', 'between']
-        }, {
+        },
+        {
           id: 'release_date_dt',
           label: 'Release Date',
           type: 'date',
-          operators: ['equal', 'less', 'greater', 'between']
+          validation: {
+            format: 'yyyy-mm-dd'
+          },
+          operators: ['equal', 'less', 'greater', 'between'],
+          plugin: 'datepicker',
+          plugin_config: {
+            format: 'yyyy-mm-dd',
+            todayBtn: 'linked',
+            todayHighlight: true,
+            autoclose: true
+          }
         }
-          //  {
-          //   id: 'id',
-          //   label: 'Identifier',
-          //   type: 'string',
-          //   placeholder: '____-____-____',
-          //   operators: ['equal', 'not_equal'],
-          //   validation: {
-          // 	format: /^.{4}-.{4}-.{4}$/
-          //   }
-          // }
         ],
         rules: rules_basic
       });

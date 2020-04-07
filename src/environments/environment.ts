@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000/api/'
+ // baseUrl: 'https://movies-nexsales-api.herokuapp.com/api/',
+  baseUrl: 'http://localhost:5000/api/'
 };
 
 /*
